@@ -1,0 +1,130 @@
+import React, { Component } from 'react';
+import { observer, inject } from 'mobx-react'
+
+import {
+    useEditor,
+    EditorContent,
+    BubbleMenu,
+    FloatingMenu,
+    ReactNodeViewRenderer 
+  } from '@tiptap/react'
+
+  import Document from '@tiptap/extension-document'
+import Paragraph from '@tiptap/extension-paragraph'
+import Text from '@tiptap/extension-text'
+  import Highlight from '@tiptap/extension-highlight'
+import Typography from '@tiptap/extension-typography'
+import CodeBlockLowlight from '@tiptap/extension-code-block-lowlight'
+  import StarterKit from '@tiptap/starter-kit'
+  import CodeBlockComponent from './CodeBlockComponent'
+
+  import lowlight from 'lowlight'
+
+import './content.scss'
+
+import { MobXProviderContext } from 'mobx-react'
+function useStores() {
+  return React.useContext(MobXProviderContext)
+}
+
+// import './styles.scss'
+
+// load specific languages only
+
+const MenuBar = observer(() => {
+
+  const { store } = useStores()
+
+  console.log(`store.editor`,store.editor)
+
+    if (!store.editor) {
+      return null
+    }
+  
+    return (
+      <button onClick={() => store.editor.chain().focus().toggleCodeBlock().run()} className={store.editor.isActive('codeBlock') ? 'is-active' : ''}>
+        code block
+      </button>
+    )
+  })
+
+const Tiptap = observer(() => {
+
+    const { store } = useStores()
+
+    store.editor = useEditor({
+        extensions: [
+          StarterKit,
+          Document,
+          Paragraph,
+          Text,
+          Highlight,
+          Typography,
+          CodeBlockLowlight.configure({
+              lowlight
+            }),
+        ],
+        content: `
+        <p>
+          That’s a boring paragraph followed by a fenced code block:
+        </p>
+        <pre><code class="language-javascript">for (var i=1; i <= 20; i++)
+{
+  if (i % 15 == 0)
+    console.log("FizzBuzz");
+  else if (i % 3 == 0)
+    console.log("Fizz");
+  else if (i % 5 == 0)
+    console.log("Buzz");
+  else
+    console.log(i);
+}</code></pre>
+        <p>
+          Press Command/Ctrl + Enter to leave the fenced code block and continue typing in boring paragraphs.
+        </p>
+      `,
+    })
+
+      return (
+        <> 
+            <MenuBar editor={store.editor} />
+            <EditorContent editor={store.editor} />
+        </>
+      )
+    })
+
+
+@inject('store')
+@observer
+class Content extends Component {
+	render() {
+
+	  return (
+        <div className="container mx-auto ">
+            <div className="grid grid-cols-12 gap-4">
+                <div className="col-span-3  min-h-screen py-8">
+                  <div className=" min-h-full">
+                        Testing
+                    </div>
+                </div>
+                <div className="col-span-6 min-h-screen">
+                    <div className="mt-8 bg-white shadow-lg">
+                   
+                      <Tiptap />
+                    </div>
+                </div>
+                <div className="col-span-3 min-h-screen py-8">
+                <div className="min-h-full">
+                        Testing
+                    </div>
+
+                </div>
+            </div>
+        </div>
+      )
+    }
+}	
+
+
+	
+export default Content
