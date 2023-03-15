@@ -8,20 +8,18 @@ app.post('/example', async (req, res, next) => {
 	try {
 		let { content } = req.body
   
-	let prompt = `This is an example prompt, confirm if successful:\n###\n` +
+	let prompt = `Chatbot interface:\n###\n`
 
-	``
-
-	let inputRaw = `TEXT: ${content}\nKEY POINTS: 1.`
+	let inputRaw = `${content}` // here is where people enter stuff
 	prompt += inputRaw
 
 	const gptResponse = await openai.complete({
-		engine: 'curie',
+		engine: 'davinci',
 		prompt,
-		maxTokens: 150,
+		maxTokens: 250,
 		temperature: 0.5,
 		topP: 1,
-		frequencyPenalty: 1,
+		frequencyPenalty: 0.2,
 		presencePenalty: 0,
 		bestOf: 1,
 		n: 1,
