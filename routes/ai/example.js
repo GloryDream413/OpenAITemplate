@@ -8,16 +8,18 @@ app.post('/example', async (req, res, next) => {
 	try {
 		let { content } = req.body
   
-	let prompt = `This is a Chatbot that Answer questions from a user:\n`
+	let prompt = `This is an example prompt, confirm if successful:\n###\n` +
 
-	let inputRaw = `${content}` // here is where people enter stuff
+	``
+
+	let inputRaw = `TEXT: ${content}\nKEY POINTS: 1.`
 	prompt += inputRaw
 
 	const gptResponse = await openai.complete({
 		engine: 'curie',
 		prompt,
 		maxTokens: 150,
-		temperature: 0.2,
+		temperature: 0.5,
 		topP: 1,
 		frequencyPenalty: 1,
 		presencePenalty: 0,

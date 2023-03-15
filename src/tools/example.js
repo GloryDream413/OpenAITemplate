@@ -5,7 +5,7 @@ import {
 
 const obj = {
 
-	title: "New Example Prompt",
+	title: "Example Prompt",
 	desc: "Analyze your text or documents and convey the important concepts in bullet form.",
 	category: "Programming",
 	Icon: ViewListIcon,

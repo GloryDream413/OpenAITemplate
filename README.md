@@ -8,7 +8,7 @@ To start using the project, you will need the following. Node version 14 or abov
 ### Current Configuration
 These are quite important as they can effect the installation and dependencies of the project. Please use the following:
 
-- Node Version 14.17.6
+- Node Version 14.17.6 (nvm install 14.17.6)
 - NPM Version 6.14.15
 - Python Version 2.7
 
@@ -25,7 +25,7 @@ Prepare the following items
 
 - Perform a NPM install or Yarn in the rood directory to install modules
 - Update the ENV keys (or ENV.DEV) for your environemnt (for OpenAI, Mongo Etc)
-- - MongoDB requires Cluster, Database, Username and Password
+- MongoDB requires Cluster, Database, Username and Password
 - For PC `npm run api` to start the instance of the project
 - For Mac `npm run apimac` to start the instance of the project
 - Start the Create React App using `npm start`
