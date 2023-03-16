@@ -5,9 +5,9 @@ import {
 
 const obj = {
 
-	title: "Example Prompt",
+	title: "SMSChatGPT Prompt",
 	desc: "Analyze your text or documents and convey the important concepts in bullet form.",
-	category: "Programming",
+	category: "Business",
 	Icon: ViewListIcon,
 	// tags: [],
 	permissions: ['user'],
@@ -15,37 +15,37 @@ const obj = {
 	fromColor: "gray-500",
 	toColor: "gray-500",
 
-	to: "/ai/example",
-	api: "/ai/example",
+	to: "/ai/smschatgpt",
+	api: "/ai/smschatgpt",
 
 	output: {
-		title: "Example",
+		title: "SMS ChatGPT",
 		desc: "The following key points detected",
 		Icon: false,
 		color: "blue",
 	},
 
 	prompts: [{
-		title:"Entry Text",
-		desc: "A sentence or paragraph you wish to understand in bullet point form.",
+		title:"SMS ChatGPT Ad",
+		desc: "Write a short few words about the ad",
 		// n: 1,
 		prompts: [{ 
 				title: "Content", 
 				attr: "content",  
 				value: "", 
-				placeholder: "When doing an your taxes, it's important to...", 
-				label: "",
+				placeholder: "Plz write your world would like to know.", 
+				label: "Examples: I'd like to know about SMS ChatGPT",
 				type: "textarea",
 				maxLength: 600,
 				// max: 100,
 				min: 3,
 				required: true,
 				error: "",
-				example: "Hello World ",
+				example: "Hi. I'd like to know about SMS ChatGPT",
 			},
 		],
 		example: {
-			output: "Hello World Hello World Hello World Hello World Hello World Hello World Hello World ",
+			output: "SMS ChatGPT allows you to get response by sms chat.",
 			// outputs: [
 			// 	"The sun is very old, over 4.5 billion years",
 			// 	"At 10,000 degrees, sun is also very hot",

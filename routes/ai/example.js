@@ -6,7 +6,7 @@ let app = express.Router()
 
 app.post('/example', async (req, res, next) => {
 	try {
-		let { content } = req.body
+		let { content, name, phone } = req.body
   
 	let prompt = `Chatbot interface:\n###\n`
 
@@ -14,7 +14,7 @@ app.post('/example', async (req, res, next) => {
 	prompt += inputRaw
 
 	const gptResponse = await openai.complete({
-		engine: 'davinci',
+		engine: 'davinci:ft-personal:mymodel-2023-03-15-10-00-49',
 		prompt,
 		maxTokens: 250,
 		temperature: 0.5,
