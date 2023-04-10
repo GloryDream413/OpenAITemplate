@@ -86,7 +86,7 @@ class Referral extends Component {
 					</div>
 
 					{/* // eslint-disable-next-line react/jsx-no-target-blank */}
-					<a rel="noopener noreferrer" href={`https://twitter.com/intent/tweet?text=Check out OpenAI Template and give it a try with the following link: ${window.store.landingPageUrl}/signup?referral=${this.props.store.profile.referralId}`} className="flex items-center" target="_blank">
+					<a rel="noopener noreferrer" href={`https://twitter.com/intent/tweet?text=Check out My ChatGPT and give it a try with the following link: ${window.store.landingPageUrl}/signup?referral=${this.props.store.profile.referralId}`} className="flex items-center" target="_blank">
 							<div className={`cursor-pointer bg-gray-200 text-gray-700 hover:bg-gray-300 hover:text-gray-800 flex-shrink-0 inline-flex items-center justify-center md:h-16 md:w-16 h-6 w-6 rounded-full  sm:mx-0 sm:h-12 sm:w-12`}>
 								<TwitterIcon className={`h-3 w-3 md:h-8 md:w-8`} aria-hidden="true" />
 							</div>
